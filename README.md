@@ -72,3 +72,6 @@ const scriptURL = "[https://script.google.com/macros/s/SUA_URL_AQUI/exec]";
   # Abrir diretamente
   Abra o arquivo index.html no seu navegador.
 ```
+
+## Autor
+* **Breno Luiz** - [Bren0-lz](https://github.com/Bren0-lz)
