@@ -1,6 +1,4 @@
-/* =========================================
-   1. RESET E VARIÁVEIS (A Nova Paleta)
-   ========================================= */
+/* 1. RESET E VARIÁVEIS */
 * {
   margin: 0;
   padding: 0;
@@ -34,9 +32,7 @@ body {
   overflow-x: hidden;
 }
 
-/* =========================================
-   2. HERO SECTION (Capa)
-   ========================================= */
+/*2. HERO SECTION (Capa) */
 .hero-fullscreen {
   height: 100vh;
   width: 100%;
@@ -62,9 +58,7 @@ body {
   }
 }
 
-/* =========================================
-   3. NAVBAR
-   ========================================= */
+/*3. NAVBAR */
 .navbar {
   position: fixed;
   top: 0;
@@ -108,7 +102,7 @@ body {
 
 /* Botão Principal (Estilo Dourado/Bronze) */
 .btn-gold {
-  background-color: var(--gold-accent); /* Agora é um tom bronze/dourado */
+  background-color: var(--gold-accent);
   color: #fff;
   padding: 10px 25px;
   text-decoration: none;
@@ -122,7 +116,7 @@ body {
 }
 
 .btn-gold:hover {
-  background-color: var(--olive-primary); /* Fica verde ao passar o mouse */
+  background-color: var(--olive-primary);
   color: #fff;
 }
 
@@ -191,9 +185,7 @@ body {
   color: var(--gold-accent);
 }
 
-/* =========================================
-   4. SEÇÕES GERAIS
-   ========================================= */
+/* 4. SEÇÕES GERAIS */
 .section-padding {
   padding: 80px 20px;
 }
@@ -237,9 +229,7 @@ body {
   text-align: left;
 }
 
-/* =========================================
-   5. CARDS DE EVENTO
-   ========================================= */
+/* 5. CARDS DE EVENTO */
 .event-cards {
   display: flex;
   justify-content: center;
@@ -291,9 +281,7 @@ body {
   border-bottom: 1px solid var(--olive-primary);
 }
 
-/* =========================================
-   6. HISTÓRIA (ZIG ZAG)
-   ========================================= */
+/* 6. HISTÓRIA (ZIG ZAG) */
 .story-container {
   display: flex;
   align-items: center;
@@ -315,9 +303,7 @@ body {
   color: #555;
 }
 
-/* =========================================
-   7. FORMULÁRIO RSVP
-   ========================================= */
+/* 7. FORMULÁRIO RSVP */
 .rsvp-intro {
   margin-bottom: 30px;
   color: var(--beige-cream);
@@ -381,9 +367,7 @@ body {
   font-size: 1rem;
 }
 
-/* =========================================
-   8. LISTA DE PRESENTES
-   ========================================= */
+/* 8. LISTA DE PRESENTES */
 .section-subtitle {
   margin-bottom: 40px;
   color: #666;
@@ -457,9 +441,7 @@ body {
   color: #fff;
 }
 
-/* =========================================
-   9. MODAL & FOOTER
-   ========================================= */
+/* 9. MODAL & FOOTER */
 .modal-overlay {
   display: none;
   position: fixed;
@@ -564,9 +546,8 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* =========================================
-   10. RESPONSIVIDADE
-   ========================================= */
+/* 10. RESPONSIVIDADE */
+
 @media (max-width: 768px) {
   .navbar {
     padding: 20px;
@@ -640,4 +621,22 @@ footer {
   .story-img img {
     box-shadow: 10px 10px 0px var(--olive-primary);
   }
+}
+
+/* --- Marca D'água do Desenvolvedor --- */
+
+.watermark {
+  margin-top: 15px;
+  font-size: 0.65rem;
+  color: var(--beige-cream);
+  opacity: 0.3;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: default;
+  transition: opacity 0.3s ease;
+}
+
+.watermark:hover {
+  opacity: 0.8;
 }

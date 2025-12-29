@@ -1,7 +1,4 @@
-// ======================================================
 // 1. LÓGICA DO MENU MOBILE E NAVBAR
-// ======================================================
-
 // Função para abrir/fechar o menu mobile
 function toggleMenu() {
   const navLinks = document.querySelector(".nav-links");
@@ -19,9 +16,7 @@ window.addEventListener("scroll", function () {
   }
 });
 
-// ======================================================
 // 2. LÓGICA DO FORMULÁRIO (GOOGLE SHEETS)
-// ======================================================
 
 const scriptURL =
   "https://script.google.com/macros/s/AKfycbwDRvFktIaXgPqNkk_MiGLjL5Uoj9QYJiRSVlcwjWoShxy57nHmYnhmgFgtrdDfmSk-/exec";
@@ -71,15 +66,13 @@ form.addEventListener("submit", (e) => {
     });
 });
 
-// ======================================================
-// 3. LÓGICA DO MODAL DE PRESENTES (Faltava isso!)
-// ======================================================
+// 3. LÓGICA DO MODAL DE PRESENTES
 
 const modal = document.getElementById("giftModal");
 const modalTitle = document.getElementById("modalTitle");
 
 // --- ATENÇÃO: COLOQUE SUA CHAVE PIX REAL AQUI ---
-const myPixKey = "22 98837-2354";
+const myPixKey = "XXXXXXXXXXXXXXXX";
 
 // Função para abrir o modal
 function openGiftModal(giftName) {
