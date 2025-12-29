@@ -1,0 +1,643 @@
+/* =========================================
+   1. RESET E VARIÁVEIS (A Nova Paleta)
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* PALETA VERDE OLIVA & BEGE */
+  --olive-primary: #606c38; /* Verde Oliva (Botões, Ícones) */
+  --olive-dark: #283618; /* Verde Escuro (Fundo RSVP, Navbar, Texto Forte) */
+  --beige-cream: #fefae0; /* Bege Claro (Fundo das seções) */
+  --beige-dark: #f2e8cf; /* Bege um pouco mais escuro (Detalhes) */
+  --gold-accent: #cfb53b;
+
+  --text-dark: #283618; /* Texto padrão (Verde muito escuro) */
+  --text-white: #ffffff;
+
+  --font-serif: "Cinzel", serif;
+  --font-script: "Great Vibes", cursive;
+  --font-sans: "Montserrat", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-dark);
+  background-color: var(--beige-cream); /* Fundo geral bege */
+  overflow-x: hidden;
+}
+
+/* =========================================
+   2. HERO SECTION (Capa)
+   ========================================= */
+.hero-fullscreen {
+  height: 100vh;
+  width: 100%;
+  /* Gradiente agora puxa para o verde escuro, não preto */
+  background: linear-gradient(rgba(40, 54, 24, 0.5), rgba(40, 54, 24, 0.7)),
+    url("https://images.unsplash.com/photo-1522673607200-1645062cd958?q=80&w=2000&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll; /* Scroll no mobile para evitar bugs */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  color: var(--beige-cream);
+}
+
+@media (min-width: 769px) {
+  .hero-fullscreen {
+    background-attachment: fixed; /* Parallax só no PC */
+  }
+}
+
+/* =========================================
+   3. NAVBAR
+   ========================================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  z-index: 1000;
+  transition: 0.3s;
+}
+
+.logo {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: var(--beige-cream);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--beige-cream);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.nav-links li a:hover {
+  color: var(--gold-accent);
+}
+
+/* Botão Principal (Estilo Dourado/Bronze) */
+.btn-gold {
+  background-color: var(--gold-accent); /* Agora é um tom bronze/dourado */
+  color: #fff;
+  padding: 10px 25px;
+  text-decoration: none;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 2px;
+  border: none;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.btn-gold:hover {
+  background-color: var(--olive-primary); /* Fica verde ao passar o mouse */
+  color: #fff;
+}
+
+.mobile-btn {
+  display: none;
+}
+.mobile-menu-icon {
+  display: none;
+  cursor: pointer;
+  color: var(--beige-cream);
+}
+.close-menu {
+  display: none;
+}
+
+/* Texto Central Hero */
+.hero-content {
+  max-width: 800px;
+  padding: 20px;
+  margin-top: 60px;
+}
+
+.save-the-date {
+  font-family: var(--font-script);
+  font-size: 3.5rem;
+  color: var(--gold-accent); /* Destaque em Dourado */
+  margin-bottom: 5px;
+}
+
+.couple-name {
+  font-family: var(--font-serif);
+  font-size: 4rem;
+  letter-spacing: 5px;
+  line-height: 1.1;
+  margin: 10px 0;
+  color: var(--beige-cream);
+}
+
+.wedding-date {
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  margin-bottom: 30px;
+  color: var(--beige-cream);
+}
+
+.quote-container {
+  border-top: 1px solid rgba(254, 250, 224, 0.5); /* Linha bege transparente */
+  padding-top: 20px;
+  display: inline-block;
+  width: 80%;
+}
+
+.bible-quote {
+  font-style: italic;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.bible-quote span {
+  display: block;
+  margin-top: 5px;
+  font-style: normal;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--gold-accent);
+}
+
+/* =========================================
+   4. SEÇÕES GERAIS
+   ========================================= */
+.section-padding {
+  padding: 80px 20px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: var(--olive-primary); /* Títulos em Verde Oliva */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Cores de Fundo Específicas */
+.bg-cream {
+  background-color: var(--beige-cream);
+  color: var(--text-dark);
+}
+.bg-white {
+  background-color: #ffffff;
+  color: var(--text-dark);
+}
+
+/* Fundo Escuro agora é Verde Musgo Profundo */
+.bg-dark {
+  background-color: var(--olive-dark);
+  color: var(--beige-cream);
+  background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+}
+
+.text-gold {
+  color: var(--gold-accent);
+}
+.text-left {
+  text-align: left;
+}
+
+/* =========================================
+   5. CARDS DE EVENTO
+   ========================================= */
+.event-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #fff;
+  padding: 40px 20px;
+  border: 1px solid var(--beige-dark); /* Borda sutil */
+  width: 300px;
+  transition: transform 0.3s;
+  box-shadow: 0 5px 15px rgba(96, 108, 56, 0.1); /* Sombra esverdeada leve */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: var(--olive-primary);
+}
+
+.card-icon {
+  font-size: 3rem;
+  color: var(--olive-primary); /* Ícones verdes */
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  font-family: var(--font-serif);
+  margin-bottom: 10px;
+  color: var(--olive-dark);
+}
+.card .time {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: var(--gold-accent);
+}
+
+.card .map-link {
+  display: inline-block;
+  margin-top: 15px;
+  color: var(--olive-primary);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid transparent;
+}
+.card .map-link:hover {
+  border-bottom: 1px solid var(--olive-primary);
+}
+
+/* =========================================
+   6. HISTÓRIA (ZIG ZAG)
+   ========================================= */
+.story-container {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  text-align: left;
+}
+
+.story-img img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 4px;
+  /* Sombra deslocada agora é Verde Oliva */
+  box-shadow: 15px 15px 0px var(--olive-primary);
+}
+
+.story-text p {
+  margin-bottom: 20px;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* =========================================
+   7. FORMULÁRIO RSVP
+   ========================================= */
+.rsvp-intro {
+  margin-bottom: 30px;
+  color: var(--beige-cream);
+  opacity: 0.8;
+}
+
+.rsvp-form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  position: relative;
+  padding-top: 15px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(254, 250, 224, 0.3); /* Linha bege clara */
+  color: var(--beige-cream);
+  padding: 10px 0;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+}
+
+/* Ajuste para o select não ficar com fundo branco feio no option */
+.form-group select option {
+  background-color: var(--olive-dark);
+  color: var(--beige-cream);
+}
+
+.form-group label {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  color: rgba(254, 250, 224, 0.6);
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.form-group input:focus ~ label,
+.form-group input:not(:placeholder-shown) ~ label {
+  top: 0;
+  font-size: 0.8rem;
+  color: var(--gold-accent);
+}
+
+.form-group input:focus {
+  border-bottom: 1px solid var(--gold-accent);
+}
+.btn-full {
+  width: 100%;
+  padding: 15px;
+  font-size: 1rem;
+}
+
+/* =========================================
+   8. LISTA DE PRESENTES
+   ========================================= */
+.section-subtitle {
+  margin-bottom: 40px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.gift-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 0 10px;
+}
+
+.gift-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gift-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(96, 108, 56, 0.15);
+}
+
+.gift-img {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s;
+}
+
+.gift-card:hover .gift-img {
+  transform: scale(1.05);
+}
+
+.gift-info {
+  padding: 25px 20px;
+}
+.gift-info h3 {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  color: var(--olive-dark);
+}
+
+.price {
+  color: var(--gold-accent);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* Botões da Lista de Presentes (Outline Verde) */
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--olive-primary); /* Borda Verde */
+  color: var(--olive-primary); /* Texto Verde */
+  padding: 10px 25px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  font-weight: 600;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.btn-outline:hover {
+  background: var(--olive-primary);
+  color: #fff;
+}
+
+/* =========================================
+   9. MODAL & FOOTER
+   ========================================= */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    40,
+    54,
+    24,
+    0.85
+  ); /* Fundo verde escuro transparente */
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+}
+
+.modal-open {
+  display: flex !important;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  background: var(--beige-cream);
+  padding: 40px 30px;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 4px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  color: var(--olive-dark);
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--olive-primary);
+}
+
+.qr-code {
+  width: 180px;
+  margin: 20px 0;
+  mix-blend-mode: multiply;
+}
+
+.copy-box {
+  display: flex;
+  margin-top: 15px;
+  border: 1px solid var(--olive-primary);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.copy-box input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #fff;
+  color: var(--olive-dark);
+  outline: none;
+  font-family: monospace;
+}
+
+.btn-copy {
+  background: var(--olive-primary);
+  color: #fff;
+  border: none;
+  padding: 0 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  transition: 0.2s;
+}
+
+.btn-copy:hover {
+  background: var(--gold-accent);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+footer {
+  padding: 30px;
+  text-align: center;
+  background: var(--olive-dark); /* Rodapé Verde Escuro */
+  color: var(--beige-cream);
+  font-size: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* =========================================
+   10. RESPONSIVIDADE
+   ========================================= */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 20px;
+  }
+  .mobile-menu-icon {
+    display: block;
+    z-index: 1001;
+  }
+  .desktop-btn {
+    display: none;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 70%;
+    background-color: var(--olive-dark); /* Menu Mobile Verde Escuro */
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    transition: right 0.4s ease;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+  }
+  .nav-links.active {
+    right: 0;
+  }
+  .nav-links li a {
+    font-size: 1.2rem;
+  }
+  .mobile-btn {
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+  .close-menu {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    color: var(--beige-cream);
+  }
+
+  .save-the-date {
+    font-size: 2.5rem;
+  }
+  .couple-name {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+  }
+  .wedding-date {
+    font-size: 1.2rem;
+  }
+  .bible-quote {
+    font-size: 0.8rem;
+  }
+
+  .story-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .story-text h2 {
+    text-align: center;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .story-img img {
+    box-shadow: 10px 10px 0px var(--olive-primary);
+  }
+}

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sara & Ezequiel - Save the Date</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header id="home" class="hero-fullscreen">
+      <nav class="navbar">
+        <div class="logo">S&E</div>
+
+        <div class="mobile-menu-icon" onclick="toggleMenu()">
+          <span class="material-icons">menu</span>
+        </div>
+
+        <ul class="nav-links">
+          <li class="close-menu" onclick="toggleMenu()">
+            <span class="material-icons">close</span>
+          </li>
+          <li>
+            <a href="#gifts" onclick="toggleMenu()">Lista de Presentes</a>
+          </li>
+          <li><a href="#event" onclick="toggleMenu()">O Evento</a></li>
+          <li><a href="#story" onclick="toggleMenu()">História do Casal</a></li>
+          <li>
+            <a href="#rsvp" class="btn-gold mobile-btn" onclick="toggleMenu()"
+              >Presença</a
+            >
+          </li>
+        </ul>
+
+        <a href="#rsvp" class="btn-gold desktop-btn">Presença</a>
+      </nav>
+
+      <div class="hero-content">
+        <p class="save-the-date">Save the date</p>
+        <h1 class="couple-name">SARA & EZEQUIEL</h1>
+        <p class="wedding-date">10.04.2026</p>
+
+        <div class="quote-container">
+          <p class="bible-quote">
+            "Para que todos vejam, e saibam, e considerem, e juntamente entendam
+            que a mão do Senhor fez isso..."
+            <span>Isaías 41:20</span>
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <section id="event" class="section-padding bg-cream">
+      <div class="container">
+        <h2 class="section-title">O Grande Dia</h2>
+        <div class="event-cards">
+          <div class="card">
+            <span class="material-icons card-icon">church</span>
+            <h3>Cerimônia</h3>
+            <p class="time">16:30h</p>
+            <p>Catedral Metropolitana</p>
+            <p class="address">Av. da Fé, 123 - Centro</p>
+            <a href="#" class="map-link">Ver no Mapa</a>
+          </div>
+
+          <div class="card">
+            <span class="material-icons card-icon">wine_bar</span>
+            <h3>Recepção</h3>
+            <p class="time">19:00h</p>
+            <p>Espaço Baolu House</p>
+            <p class="address">Estrada das Flores, KM 5</p>
+            <a href="#" class="map-link">Ver no Mapa</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="story" class="section-padding bg-white">
+      <div class="container story-container">
+        <div class="story-img">
+          <img
+            src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1470&auto=format&fit=crop"
+            alt="Foto do casal"
+          />
+        </div>
+        <div class="story-text">
+          <h2 class="section-title text-left">Como tudo começou</h2>
+          <p>
+            Nos conhecemos na faculdade, entre livros e cafés. O que começou
+            como uma amizade nos corredores logo se transformou em algo muito
+            maior.
+          </p>
+          <p>
+            De lá para cá, foram muitas aventuras, viagens e sonhos
+            compartilhados. Mal podemos esperar para escrever o próximo capítulo
+            com vocês.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="rsvp" class="section-padding bg-dark">
+      <div class="container">
+        <h2 class="section-title text-gold">Confirme sua Presença</h2>
+        <p class="rsvp-intro">Por favor, confirme até o dia 20 de Março.</p>
+
+        <form id="rsvpForm" class="rsvp-form">
+          <div class="form-group">
+            <input type="text" id="name" name="nome" required placeholder=" " />
+            <label for="name">Nome Completo</label>
+          </div>
+
+          <div class="form-group">
+            <input
+              type="tel"
+              id="phone"
+              name="telefone"
+              required
+              placeholder=" "
+            />
+            <label for="phone">Telefone / WhatsApp</label>
+          </div>
+
+          <div class="form-group">
+            <select id="guests" name="convidados">
+              <option value="1">1 Pessoa</option>
+              <option value="2">2 Pessoas</option>
+              <option value="3">3 Pessoas</option>
+              <option value="4">4 Pessoas</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn-gold btn-full">Confirmar</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="gifts" class="section-padding bg-cream">
+      <div class="container">
+        <h2 class="section-title">Lista de Presentes</h2>
+        <p class="section-subtitle">
+          Caso queira nos presentear, escolhemos algumas experiências especiais.
+        </p>
+
+        <div class="gift-grid">
+          <div class="gift-card">
+            <div
+              class="gift-img"
+              style="
+                background-image: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=1470&auto=format&fit=crop');
+              "
+            ></div>
+            <div class="gift-info">
+              <h3>Jantar Romântico</h3>
+              <p class="price">R$ 150,00</p>
+              <button
+                class="btn-outline"
+                onclick="openGiftModal('Jantar Romântico', '150,00')"
+              >
+                Presentear
+              </button>
+            </div>
+          </div>
+
+          <div class="gift-card">
+            <div
+              class="gift-img"
+              style="
+                background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1474&auto=format&fit=crop');
+              "
+            ></div>
+            <div class="gift-info">
+              <h3>Cota Lua de Mel</h3>
+              <p class="price">R$ 300,00</p>
+              <button
+                class="btn-outline"
+                onclick="openGiftModal('Cota Lua de Mel', '300,00')"
+              >
+                Presentear
+              </button>
+            </div>
+          </div>
+
+          <div class="gift-card">
+            <div
+              class="gift-img"
+              style="
+                background-image: url('https://images.unsplash.com/photo-1581579186913-45ac3e6e3dd2?q=80&w=1471&auto=format&fit=crop');
+              "
+            ></div>
+            <div class="gift-info">
+              <h3>Spa Relaxante</h3>
+              <p class="price">R$ 200,00</p>
+              <button
+                class="btn-outline"
+                onclick="openGiftModal('Spa Relaxante', '200,00')"
+              >
+                Presentear
+              </button>
+            </div>
+          </div>
+          <div class="gift-card">
+            <div
+              class="gift-img"
+              style="
+                background-image: url('https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?q=80&w=1470&auto=format&fit=crop');
+              "
+            ></div>
+            <div class="gift-info">
+              <h3>Mobiliar a Casa</h3>
+              <p class="price">Valor Livre</p>
+              <button
+                class="btn-outline"
+                onclick="openGiftModal('Ajuda na Casa Nova', 'livre')"
+              >
+                Presentear
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="giftModal" class="modal-overlay">
+      <div class="modal-content">
+        <span class="close-modal" onclick="closeGiftModal()">&times;</span>
+        <h3 id="modalTitle">Nome do Presente</h3>
+        <p>Ficaremos muito felizes com seu presente!</p>
+
+        <div class="pix-area">
+          <p class="pix-key-label">Chave PIX (Telefone):</p>
+          <div class="copy-box">
+            <input type="text" value="22 98837-2354" id="pixKey" readonly />
+            <button class="btn-copy" onclick="copyPix()">Copiar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>S & E &copy; 2024. Feito com amor.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
