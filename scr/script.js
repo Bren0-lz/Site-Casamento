@@ -18,8 +18,7 @@ window.addEventListener("scroll", function () {
 
 // 2. LÓGICA DO FORMULÁRIO (GOOGLE SHEETS)
 
-const scriptURL =
-  "https://script.google.com/macros/s/AKfycbwDRvFktIaXgPqNkk_MiGLjL5Uoj9QYJiRSVlcwjWoShxy57nHmYnhmgFgtrdDfmSk-/exec";
+const scriptURL = Config.scriptURL; // ADD O LINK DA SUA PLANILHA AQUI
 const form = document.getElementById("rsvpForm");
 
 form.addEventListener("submit", (e) => {
@@ -35,44 +34,59 @@ form.addEventListener("submit", (e) => {
   // Converte os dados para o formato que o Google Script aceita
   const data = new URLSearchParams(new FormData(form));
 
+  // Adiciona o token de segurança
+  data.append("token", Config.apiToken);
+
   fetch(scriptURL, {
     method: "POST",
     body: data,
   })
     .then((response) => {
-      alert("Obrigado! Sua presença foi confirmada na nossa lista.");
+      // Passo 1: Transforma a resposta bruta em JSON
+      return response.json();
+    })
+    .then((json) => {
+      // Passo 2: Verifica o que o Google respondeu
+      if (json.result === "success") {
+        // SUCESSO REAL
+        alert("Obrigado! Sua presença foi confirmada na nossa lista.");
 
-      // Feedback visual de sucesso
-      btn.innerText = "Confirmado!";
-      btn.style.backgroundColor = "#4CAF50"; // Verde
+        btn.innerText = "Confirmado!";
+        btn.style.backgroundColor = "#4CAF50";
+        form.reset();
 
-      // Limpa o formulário
-      form.reset();
-
-      // Reseta o botão após 3 segundos
-      setTimeout(() => {
-        btn.innerText = originalText;
-        btn.style.backgroundColor = "";
-        btn.disabled = false;
-      }, 3000);
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.style.backgroundColor = "";
+          btn.disabled = false;
+        }, 3000);
+      } else {
+        // O SERVIDOR RESPONDEU ERRO (Ex: Token inválido)
+        throw new Error(json.message || "Erro desconhecido no servidor");
+      }
     })
     .catch((error) => {
       console.error("Erro!", error.message);
-      alert(
-        "Houve um detalhe técnico, mas tente verificar se salvou. Se não, me avise!"
-      );
-      btn.innerText = originalText;
+      // Agora sim vai cair aqui se o token estiver errado!
+      alert("Erro ao enviar: " + error.message);
+
+      btn.innerText = "Tentar Novamente";
+      btn.style.backgroundColor = "#d32f2f"; // Vermelho
       btn.disabled = false;
+
+      setTimeout(() => {
+        btn.innerText = originalText;
+        btn.style.backgroundColor = "";
+      }, 3000);
     });
 });
-
 // 3. LÓGICA DO MODAL DE PRESENTES
 
 const modal = document.getElementById("giftModal");
 const modalTitle = document.getElementById("modalTitle");
 
 // --- ATENÇÃO: COLOQUE SUA CHAVE PIX REAL AQUI ---
-const myPixKey = "XXXXXXXXXXXXXXXX";
+const myPixKey = Config.pixKey;
 
 // Função para abrir o modal
 function openGiftModal(giftName) {

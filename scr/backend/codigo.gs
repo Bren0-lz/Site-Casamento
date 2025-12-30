@@ -3,6 +3,12 @@ function handleRequest(e) {
   var lock = LockService.getScriptLock();
   lock.tryLock(10000);
 
+  // Se o token não vier ou for errado, rejeita
+  if (e.parameter.token !== "Casamento2025Seguro") {
+    return ContentService.createTextOutput(
+      JSON.stringify({ result: "error", message: "Acesso Negado" })
+    ).setMimeType(ContentService.MimeType.JSON);
+  }
   try {
     // 1. Abre a planilha (Certifique-se que a aba se chama 'Página1')
     var doc = SpreadsheetApp.getActiveSpreadsheet();
