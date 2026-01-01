@@ -36,13 +36,10 @@ window.addEventListener("scroll", function () {
 const scriptURL = Config.scriptURL; // ADD O LINK DA SUA PLANILHA AQUI
 const form = document.getElementById("rsvpForm");
 
-// ======================================================
 // MÁSCARA DE TELEFONE (Input Mask)
-// ======================================================
 const phoneInput = document.getElementById("phone");
 
 phoneInput.addEventListener("input", function (e) {
-  // 1. DETECÇÃO DE "APAGAR" (A Mágica da Engenharia)
   // Se o tipo de entrada for "deletar para trás" (Backspace),
   // nós PARAMOS a função aqui e deixamos o navegador apagar nativamente.
   // Isso impede que a máscara "brigue" com o usuário tentando recolocar o hífen.

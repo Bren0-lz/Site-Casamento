@@ -725,3 +725,38 @@ footer {
   opacity: 1;
   transform: translateY(0); /* Volta para a posição original */
 }
+
+/* BOTÕES DE MAPA */
+.btn-map {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* Espaço entre ícone e texto */
+
+  margin-top: 15px;
+  padding: 10px 20px;
+
+  border: 1px solid var(--gold-accent); /* Borda Dourada */
+  border-radius: 50px; /* Redondinho */
+
+  color: var(--gold-accent);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  transition: all 0.3s ease;
+}
+
+/* Efeito Hover (Ao passar o rato) */
+.btn-map:hover {
+  background-color: var(--gold-accent);
+  color: #fff; /* Texto fica branco */
+  transform: translateY(-3px); /* Sobe um pouquinho */
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3); /* Sombra dourada suave */
+}
+
+/* Ajuste do ícone */
+.btn-map .material-icons {
+  font-size: 1.1rem;
+}
