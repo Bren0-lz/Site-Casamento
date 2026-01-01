@@ -641,3 +641,72 @@ footer {
 .watermark:hover {
   opacity: 0.8;
 }
+
+/*AJUSTES PARA DESKTOP (Telas Grandes) */
+@media (min-width: 769px) {
+  /* 1. Esconde itens mobile */
+  .mobile-menu-icon,
+  .close-menu {
+    display: none !important;
+  }
+
+  /* 2. Navbar como GRID (Divide em 3 partes iguais ou proporcionais) */
+  .navbar {
+    position: fixed; /* Grudado no topo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px; /* Altura fixa para estabilidade */
+    padding: 0 50px;
+    z-index: 1000;
+
+    /* A MÁGICA DO GRID: 
+           1fr (fração livre) | auto (tamanho do conteúdo) | 1fr (fração livre) 
+        */
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+
+    /* Garante que o JS de scroll continue mudando a cor de fundo */
+    transition: background-color 0.3s ease;
+  }
+
+  /* 3. Logo (Fica na Coluna 1 - Esquerda) */
+  .logo {
+    justify-self: start;
+  }
+
+  /* 4. Links (Ficam na Coluna 2 - Centro Exato) */
+  .nav-links {
+    justify-self: center; /* Centraliza na coluna do meio */
+
+    position: static; /* Removemos o absolute! */
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    transform: none; /* Removemos translações antigas */
+
+    background: transparent;
+    box-shadow: none;
+    width: auto;
+    height: auto;
+    padding: 0;
+  }
+
+  .nav-links li {
+    margin: 0;
+    opacity: 1;
+  }
+
+  .nav-links li a {
+    font-size: 0.9rem;
+    color: var(--beige-cream);
+  }
+
+  /* 5. Botão de Presença (Se estiver dentro de um container, ajustamos aqui) */
+  /* Caso o botão esteja solto na navbar, precisamos garantir que vá para a direita */
+  .navbar > .btn-gold,
+  .navbar > a.btn-gold {
+    justify-self: end; /* Coluna 3 - Direita */
+  }
+}
