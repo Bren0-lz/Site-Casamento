@@ -710,3 +710,18 @@ footer {
     justify-self: end; /* Coluna 3 - Direita */
   }
 }
+
+/* ANIMAÇÃO SCROLL REVEAL (Aparecer ao rolar) */
+/* Estado Inicial (Invisível) */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px); /* Começa 50px para baixo */
+  transition: all 1s ease; /* Demora 1 segundo para subir suavemente */
+  will-change: opacity, transform; /* Avisa a GPU para otimizar */
+}
+
+/* Estado Final (Visível - Adicionado via JS) */
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0); /* Volta para a posição original */
+}

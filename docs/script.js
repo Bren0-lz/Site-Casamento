@@ -196,3 +196,36 @@ function copyPix() {
       alert("Chave copiada!");
     });
 }
+
+// SCROLL REVEAL (Intersection Observer API)
+// 1. Configuração do Observador
+const observerOptions = {
+  root: null, // null = viewport (janela do navegador)
+  rootMargin: "0px", // margem extra
+  threshold: 0.1, // 10% do elemento precisa estar visível para disparar
+};
+
+// 2. Cria o Observador (Modo Repetição Infinita)
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    // Se o elemento entrou na tela
+    if (entry.isIntersecting) {
+      entry.target.classList.add("active");
+    }
+    // Se o elemento SAIU da tela
+    else {
+      entry.target.classList.remove("active"); // Remove a classe para animar de novo depois
+    }
+  });
+}, observerOptions);
+
+// 3. Seleciona automaticamente os elementos que queremos animar
+const elementsToAnimate = document.querySelectorAll(
+  ".section-title, .card, .gift-card, .story-container, .rsvp-form, .bible-quote"
+);
+
+// 4. Conecta os elementos ao observador
+elementsToAnimate.forEach((el) => {
+  el.classList.add("reveal"); // Adiciona a classe CSS inicial (invisível)
+  observer.observe(el); // Manda o observador vigiar
+});

@@ -16,7 +16,7 @@ const Config = {
     "https://script.google.com/macros/s/AKfycbwDRvFktIaXgPqNkk_MiGLjL5Uoj9QYJiRSVlcwjWoShxy57nHmYnhmgFgtrdDfmSk-/exec",
 
   // Sua Chave PIX que vai aparecer no Modal
-  pixKey: "22988372354",
+  pixKey: "sua_chave_pix",
 
   apiToken: "Casamento2025Seguro",
 };
