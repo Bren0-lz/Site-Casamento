@@ -21,6 +21,43 @@ window.addEventListener("scroll", function () {
 const scriptURL = Config.scriptURL; // ADD O LINK DA SUA PLANILHA AQUI
 const form = document.getElementById("rsvpForm");
 
+// ======================================================
+// MÁSCARA DE TELEFONE (Input Mask)
+// ======================================================
+const phoneInput = document.getElementById("phone");
+
+phoneInput.addEventListener("input", function (e) {
+  // 1. DETECÇÃO DE "APAGAR" (A Mágica da Engenharia)
+  // Se o tipo de entrada for "deletar para trás" (Backspace),
+  // nós PARAMOS a função aqui e deixamos o navegador apagar nativamente.
+  // Isso impede que a máscara "brigue" com o usuário tentando recolocar o hífen.
+  if (e.inputType === "deleteContentBackward") {
+    return;
+  }
+
+  // 2. LÓGICA PADRÃO DA MÁSCARA (Só roda se estiver DIGITANDO)
+  let value = e.target.value.replace(/\D/g, "");
+  if (value.length > 11) {
+    value = value.slice(0, 11);
+  }
+
+  if (value.length > 10) {
+    // Celular (11 dígitos)
+    value = value.replace(/^(\d{2})(\d{5})(\d{4}).*/, "($1) $2-$3");
+  } else if (value.length > 5) {
+    // Fixo ou digitando (10 dígitos)
+    value = value.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+  } else if (value.length > 2) {
+    // Apenas DDD
+    value = value.replace(/^(\d{2})(\d{0,5}).*/, "($1) $2");
+  } else if (value.length > 0) {
+    // Começo
+    value = value.replace(/^(\d*)/, "($1");
+  }
+
+  e.target.value = value;
+});
+
 form.addEventListener("submit", (e) => {
   e.preventDefault(); // Impede a página de recarregar
 
