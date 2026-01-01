@@ -2,7 +2,22 @@
 // Função para abrir/fechar o menu mobile
 function toggleMenu() {
   const navLinks = document.querySelector(".nav-links");
+  const menuIcon = document.querySelector(".mobile-menu-icon");
+  const closeIcon = document.querySelector(".close-menu");
+
+  // 1. Abre ou fecha o menu (slide)
   navLinks.classList.toggle("active");
+
+  // 2. Lógica de Troca dos Botões
+  // Se o menu acabou de abrir (tem a classe active):
+  if (navLinks.classList.contains("active")) {
+    menuIcon.style.display = "none"; // Esconde o Hambúrguer
+    closeIcon.style.display = "block"; // Mostra o X
+  } else {
+    // Se o menu fechou:
+    menuIcon.style.display = "block"; // Volta o Hambúrguer
+    closeIcon.style.display = "none"; // Esconde o X
+  }
 }
 
 // Efeito de fundo na Navbar ao rolar
