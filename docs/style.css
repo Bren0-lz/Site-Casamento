@@ -760,3 +760,34 @@ footer {
 .btn-map .material-icons {
   font-size: 1.1rem;
 }
+
+/* ASSINATURA DO DESENVOLVEDOR (Link) */
+.dev-link {
+  color: inherit; /* Mantém a cor do texto do rodapé */
+  text-decoration: none; /* Remove o sublinhado padrão */
+  /*font-weight: 600; /* Deixa o nome levemente mais grosso */
+  position: relative; /* Para animação */
+  transition: color 0.3s ease;
+}
+
+/* Efeito Hover: Muda para dourado ao passar o mouse */
+.dev-link:hover {
+  color: var(--gold-accent);
+  cursor: pointer;
+}
+
+/* Opcional: Um sublinhado animado que aparece no hover */
+.dev-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--gold-accent);
+  transition: width 0.3s ease;
+}
+
+.dev-link:hover::after {
+  width: 100%; /* O sublinhado cresce da esquerda para a direita */
+}
