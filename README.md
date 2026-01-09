@@ -88,11 +88,6 @@ O projeto segue uma estrutura limpa, isolando o código-fonte do frontend na pas
 └── README.md              # Documentação técnica e guia de instalação
 ```
 
-## Autor
-
-**Breno Luiz**
-* [LinkedIn](## Autor
-
 **Breno Luiz**
 * [LinkedIn](https://www.linkedin.com/in/breno-luiz-silva-do-carmo-19451a243/)
 * [GitHub](https://github.com/Bren0-lz))
